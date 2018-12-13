@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>CrediFamilia - Consultar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/css.css" />
+        <!--importarJS-->
+        <script src="js/configuracionHost.js"></script>
+        <script src="js/apicliente.js"></script> 
+        <script src="js/cliente.js"></script> 
+    </head>
+    <body>
+        <!--Menu-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="/index.html">
+                <img src="image/logo_0.png" alt="logo" id="logoMenu">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/crear.html">Crear</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/consultar.html">Consultar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/consultar.html">Actualizar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/consultar.html">Eliminar</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Fin Menu-->
+
+        <!--Formulario Busqueda-->
+        <div class="jumbotron margen5">
+            <h1>Consultar Cliente</h1>
+            <div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar" id="idBusqueda">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" onclick="cliente.consultarClientes()">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin Formulario Busqueda-->
+        <!--Tabla-->
+        <div class="table-responsive">          
+            <table class="table" id="idTablaBusqueda">
+                <thead>
+                    <tr>
+                        <th>Número Documento</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Fecha</th>
+                        <th>Ciudad</th>
+                        <th>Correo</th>
+                        <th>Ocupación</th>
+                        <th>Teléfono</th>
+                        <th>Es viable</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- Fin Tabla-->
+    </body>
+</html>

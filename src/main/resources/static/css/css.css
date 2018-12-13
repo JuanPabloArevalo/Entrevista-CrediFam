@@ -1,0 +1,19 @@
+/**Generales*/
+#logoMenu{
+    width: 75%;
+}
+.margen5{
+    margin: 5%;
+}
+
+
+/**Index*/
+#idFondoIndex{
+  	background-image: url("../image/fondo.png");
+  	background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
+}
+
+
+
