@@ -65,4 +65,12 @@ public interface ClienteRepository {
      */
     public void actualizar(Cliente cliente) throws PersistenceNotFoundException, PersistenceException;
     
+    /**
+     * Metodo encargado de actualizar la viabilidad de un cliente
+     * @param documento
+     * @param viabilidad
+     * @throws PersistenceNotFoundException 
+     * @throws com.credifamiliaCF.prueba.persistence.PersistenceException 
+     */
+    public void actualizarViabilidad(int documento, boolean viabilidad) throws PersistenceNotFoundException, PersistenceException;
 }

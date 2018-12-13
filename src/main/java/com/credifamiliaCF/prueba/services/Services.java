@@ -99,4 +99,15 @@ public class Services {
     public void actualizarCliente(Cliente cliente) throws PersistenceNotFoundException, PersistenceException, ServicesException{
         clienteRep.actualizar(cliente);
     }
+    
+    /**
+     * Metodo encargado de actualizar la viabilidad del cliente
+     * @param cliente 
+     * @throws com.credifamiliaCF.prueba.persistence.PersistenceNotFoundException 
+     * @throws com.credifamiliaCF.prueba.persistence.PersistenceException 
+     * @throws com.credifamiliaCF.prueba.services.ServicesException 
+     */
+    public void actualizarViabilidadCliente(Cliente cliente) throws PersistenceNotFoundException, PersistenceException, ServicesException{
+        clienteRep.actualizarViabilidad(cliente.getDocumento(),cliente.estaEnEdadProductiva());
+    }
 }

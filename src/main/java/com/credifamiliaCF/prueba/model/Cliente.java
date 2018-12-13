@@ -6,6 +6,10 @@
 package com.credifamiliaCF.prueba.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -22,7 +26,10 @@ public class Cliente {
     private String ocupacion;
     private long telefono;
     private boolean viabilidad;
-
+    public static final int EDAD_MINIMA_PRODUCTIVA = 18;
+    public static final int EDAD_MAXIMA_PRODUCTIVA = 65;
+    public static final String PATRON_FECHA_ddMMyyyy = "dd/MM/yyyy";
+    
     /**
      * @return the documento
      */
@@ -150,4 +157,24 @@ public class Cliente {
     }
     
     
+    public boolean estaEnEdadProductiva(){
+        try{
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern(PATRON_FECHA_ddMMyyyy);
+            LocalDate fechaNacimiento = this.fechaNacimiento.toLocalDate();
+            LocalDate ahora = LocalDate.now();
+            Period periodo = Period.between(fechaNacimiento, ahora);
+            int edad = periodo.getYears();
+            System.err.println("EDAD: "+edad);
+            if(edad>=EDAD_MINIMA_PRODUCTIVA && edad<=EDAD_MAXIMA_PRODUCTIVA){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+	
+    }
 }

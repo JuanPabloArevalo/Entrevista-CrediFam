@@ -56,6 +56,7 @@ public class Controller {
     public ResponseEntity<?> adicionarCliente(@RequestBody Cliente cliente) {
         try {
             servicio.adicionarCliente(cliente);
+            servicio.actualizarViabilidadCliente(cliente);
             return new ResponseEntity<>("Se ha creado con éxito el cliente!",HttpStatus.CREATED);
         } catch (PersistenceNotFoundException | PersistenceException | ServicesException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

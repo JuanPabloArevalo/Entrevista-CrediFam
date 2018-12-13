@@ -228,4 +228,22 @@ public class ClienteRepositoryDatabase implements ClienteRepository{
         } 
     }
 
+    @Override
+    public void actualizarViabilidad(int documento, boolean viabilidad) throws PersistenceNotFoundException, PersistenceException {
+        try {
+            Class.forName(driver);
+            connect = DriverManager.getConnection(url);
+            statement = connect.createStatement();
+            preparedStatement = connect.prepareStatement("UPDATE "+NOMBRE_TABLA+" SET viable = ? WHERE NumeroDocumento = ?");
+            preparedStatement.setBoolean(1, viabilidad);
+            preparedStatement.setInt(2, documento);
+            preparedStatement.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);
+            throw new PersistenceNotFoundException("Ha ocurrido un error con la base de datos. Por favor contacte al administrador del sistema");
+        } finally {
+            close();
+        } 
+    }
+
 }
